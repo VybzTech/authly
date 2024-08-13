@@ -1,8 +1,27 @@
+# Authly 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+Types of Authentication
+- Passwordless authentication
+- Social login
+- Single sign on SSO
+- Multi factor authentication
+- Multi tenency 
+- Feature flags
+
 
 First, run the development server:
+
+
+### Kind of Auth I want
+- Session based: once you're out you need to log in again
+- Uses cookies to store password if accepted
+- Provides double clicking before accepting password.
+- Password is auth generated
+- Save user info for a while 
+
 
 ```bash
 npm run dev
