@@ -6,3 +6,4 @@ const endpoint = params.kindeAuth
 return handleAuth(request,endpoint)
 
 }
+    
