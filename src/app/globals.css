@@ -11,20 +11,22 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 15, 15, 15;
+    --background-end-rgb: 7, 7, 7;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+    @apply p-12 bg-no-repeat w-full h-[100vh];
+    /* background-repeat: no-repeat; */
+  }
 
 @layer utilities {
   .text-balance {
