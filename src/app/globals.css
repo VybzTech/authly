@@ -24,7 +24,7 @@ body {
     rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    @apply p-12 bg-no-repeat w-full h-[100vh];
+    /* @apply p-12 bg-no-repeat w-full h-[100vh]; */
     /* background-repeat: no-repeat; */
   }
 

@@ -6,9 +6,9 @@ import { redirect } from "next/navigation";
 export default async function Home() {
   const session = await getServerSession(options);
 
-  if (!session) {
-    redirect("/Home");
-  }
+  // if (!session) {
+  //   redirect("/signin");
+  // }
 
   return (
     <>
@@ -121,7 +121,7 @@ export default async function Home() {
       </div> */}
         </main>
       ) : (
-        <h1 className="text-5xl font-bold text-gray-700">Go Home !</h1>
+        <h1 className="text-3xl font-semibold text-gray-700">Go Home !</h1>
       )}
     </>
   );

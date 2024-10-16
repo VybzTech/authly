@@ -53,3 +53,49 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+
+ <!-- Google, Facebook, Twitter, GitHub, Email, -->
+
+ - Installed the next-auth package  npm install next-auth
+ - Create nextAuth directory - src/app/api/auth/[...nextAuth] -> route.ts
+ 
+ - Create route handler
+ - Create providers in options.ts
+ `import NextAuth from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+export const authOptions = {
+  // Configure one or more authentication providers
+  providers: [
+    GithubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
+    // ...add more providers here
+  ],
+}
+export default NextAuth(authOptions)`
+ - Add options -> providers 
+ - Add session (if needed), set pages
+    `pages: { signIn: "/auth/signin", signOut: "/auth/signOut", error: "/auth/error", verifyRequest: "/auth/verify-request", newUser: "/auth/new-user",}`
+ - Get your NEXTAUTH_SECRET 
+ `openssl rand -base64 32`
+ - Git Bash into project and run `openssl enc -aes-128-cbc -k test -P -md sha1`
+ - Configure app.ts
+ `import { SessionProvider } from "next-auth/react"
+
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  )
+}`
+
+- SET UP 1ST PROVIDER (GTIHUB)
+- Go to [https://next-auth.js.org/configuration/providers/credentials] and then 

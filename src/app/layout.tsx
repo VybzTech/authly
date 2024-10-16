@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import AuthProvider from "./context/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <AuthProvider>
+        <body className={`min-h-screen p-12 px-16 ${inter.className}`} >
+          {/* <body> */}
+          <h1 className="text-5xl font-bold text-gray-800">Authly</h1>
+          {children}
+        </body>
+        {/* // provider is necessary for only client parts that need the session */}
+      </AuthProvider>
     </html>
   );
 }
