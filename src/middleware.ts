@@ -2,6 +2,8 @@ import { authMiddleware } from "@kinde-oss/kinde-auth-nextjs/server";
 
 // Without a defined matcher, this one line applies next-auth to the entire project
 
+export { default } from "next-auth/middleware";
+
 export const config = {
   matcher: [
     /*
@@ -13,11 +15,8 @@ export const config = {
      * *
      *
      */
-    //    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-    "/matcher",
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
     "/dashboard",
   ],
 };
-
-export { default } from "next-auth/middleware";
-// export default   authMiddleware;
+// export default authMiddleware;

@@ -1,27 +1,27 @@
-# Authly 
+# Authly
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+
 Types of Authentication
+
 - Passwordless authentication
 - Social login
 - Single sign on SSO
 - Multi factor authentication
-- Multi tenency 
+- Multi tenency
 - Feature flags
-
 
 First, run the development server:
 
-
 ### Kind of Auth I want
+
 - Session based: once you're out you need to log in again
 - Uses cookies to store password if accepted
 - Provides double clicking before accepting password.
 - Password is auth generated
-- Save user info for a while 
-
+- Save user info for a while
 
 ```bash
 npm run dev
@@ -54,17 +54,14 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
-
-
  <!-- Google, Facebook, Twitter, GitHub, Email, -->
 
- - Installed the next-auth package  npm install next-auth
- - Create nextAuth directory - src/app/api/auth/[...nextAuth] -> route.ts
- 
- - Create route handler
- - Create providers in options.ts
- `import NextAuth from "next-auth"
+- Installed the next-auth package npm install next-auth
+- Create nextAuth directory - src/app/api/auth/[...nextAuth] -> route.ts
+
+- Create route handler
+- Create providers in options.ts
+  `import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 export const authOptions = {
   // Configure one or more authentication providers
@@ -77,25 +74,27 @@ export const authOptions = {
   ],
 }
 export default NextAuth(authOptions)`
- - Add options -> providers 
- - Add session (if needed), set pages
-    `pages: { signIn: "/auth/signin", signOut: "/auth/signOut", error: "/auth/error", verifyRequest: "/auth/verify-request", newUser: "/auth/new-user",}`
- - Get your NEXTAUTH_SECRET 
- `openssl rand -base64 32`
- - Git Bash into project and run `openssl enc -aes-128-cbc -k test -P -md sha1`
- - Configure app.ts
- `import { SessionProvider } from "next-auth/react"
+- Add options -> providers
+- Add session (if needed), set pages
+  `pages: { signIn: "/auth/signin", signOut: "/auth/signOut", error: "/auth/error", verifyRequest: "/auth/verify-request", newUser: "/auth/new-user",}`
+- Get your NEXTAUTH_SECRET
+  `openssl rand -base64 32`
+- Git Bash into project and run `openssl enc -aes-128-cbc -k test -P -md sha1`
+- Configure app.ts
+  `import { SessionProvider } from "next-auth/react"
 
 export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
+Component,
+pageProps: { session, ...pageProps },
 }) {
-  return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
-  )
+return (
+<SessionProvider session={session}>
+<Component {...pageProps} />
+</SessionProvider>
+)
 }`
 
 - SET UP 1ST PROVIDER (GTIHUB)
-- Go to [https://next-auth.js.org/configuration/providers/credentials] and then 
+- Go to [https://next-auth.js.org/configuration/providers/credentials] and then
+
+- App works
